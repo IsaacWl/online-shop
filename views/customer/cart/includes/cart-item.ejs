@@ -1,0 +1,21 @@
+<article class="cart-item">
+  <div class="cart-item-info">
+    <div>
+      <img src="<%= item.product.imageUrl %>" alt="<%= item.product.title %>" />
+      <h2><%= item.product.title %></h2>
+    </div>
+    <p>
+      <span class="cart-item-price">$<%= item.totalPrice.toFixed(2) %></span>
+      <span>($<%= item.product.price.toFixed(2) %>)</span>
+    </p>
+  </div>
+
+  <form
+    class="cart-item-management"
+    data-productid="<%= item.product.id %>"
+    data-csrf="<%= locals._csrf %>"
+  >
+    <input type="number" value="<%= item.quantity %>" min="0" required />
+    <button class="btn btn-alt">Update</button>
+  </form>
+</article>
